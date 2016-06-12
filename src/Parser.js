@@ -1,25 +1,14 @@
-import StringParser from './StringParser'
-import ObjectParser from './ObjectParser'
-import ArrayParser from './ArrayParser'
-import NumberParser from './NumberParser'
-import DateParser from './DateParser'
-import BooleanParser from './BooleanParser'
-import AllOfParser from './AllOfParser'
-import EnumParser from './EnumParser'
+import StringParser from './Parsers/StringParser'
+import ObjectParser from './Parsers/ObjectParser'
+import ArrayParser from './Parsers/ArrayParser'
+import NumberParser from './Parsers/NumberParser'
+import DateParser from './Parsers/DateParser'
+import BooleanParser from './Parsers/BooleanParser'
+import AllOfParser from './Parsers/AllOfParser'
+import EnumParser from './Parsers/EnumParser'
 import Chance from 'chance';
 const chance = new Chance();
 
-
-// var StringParser = require('../Parsers/StringParser')
-// var ObjectParser = require('../Parsers/ObjectParser')
-// var ArrayParser = require('../Parsers/ArrayParser')
-// var NumberParser = require('../Parsers/NumberParser')
-// var DateParser = require('../Parsers/DateParser')
-// var BooleanParser = require('../Parsers/BooleanParser')
-// var AllOfParser = require('../Parsers/AllOfParser')
-// var EnumParser = require('../Parsers/EnumParser')
-// var Chance = require('chance')
-// var chance = new Chance();
 
 export default class Parser {
     get parsers() {
