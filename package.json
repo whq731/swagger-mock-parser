@@ -2,6 +2,13 @@
   "name": "swagger-mock-parser",
   "version": "1.0.0",
   "description": "use chance.js to parse definition schema to mock data",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whq731/swagger-mock-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/whq731/swagger-mock-parser/issues"
+  },
   "main": "dist/Parser",
   "scripts": {
     "build": "babel --optional runtime src --out-dir dist"
