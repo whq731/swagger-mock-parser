@@ -10,54 +10,43 @@ Object.defineProperty(exports, '__esModule', {
     value: true
 });
 
-var _StringParser = require('./StringParser');
+var _ParsersStringParser = require('./Parsers/StringParser');
 
-var _StringParser2 = _interopRequireDefault(_StringParser);
+var _ParsersStringParser2 = _interopRequireDefault(_ParsersStringParser);
 
-var _ObjectParser = require('./ObjectParser');
+var _ParsersObjectParser = require('./Parsers/ObjectParser');
 
-var _ObjectParser2 = _interopRequireDefault(_ObjectParser);
+var _ParsersObjectParser2 = _interopRequireDefault(_ParsersObjectParser);
 
-var _ArrayParser = require('./ArrayParser');
+var _ParsersArrayParser = require('./Parsers/ArrayParser');
 
-var _ArrayParser2 = _interopRequireDefault(_ArrayParser);
+var _ParsersArrayParser2 = _interopRequireDefault(_ParsersArrayParser);
 
-var _NumberParser = require('./NumberParser');
+var _ParsersNumberParser = require('./Parsers/NumberParser');
 
-var _NumberParser2 = _interopRequireDefault(_NumberParser);
+var _ParsersNumberParser2 = _interopRequireDefault(_ParsersNumberParser);
 
-var _DateParser = require('./DateParser');
+var _ParsersDateParser = require('./Parsers/DateParser');
 
-var _DateParser2 = _interopRequireDefault(_DateParser);
+var _ParsersDateParser2 = _interopRequireDefault(_ParsersDateParser);
 
-var _BooleanParser = require('./BooleanParser');
+var _ParsersBooleanParser = require('./Parsers/BooleanParser');
 
-var _BooleanParser2 = _interopRequireDefault(_BooleanParser);
+var _ParsersBooleanParser2 = _interopRequireDefault(_ParsersBooleanParser);
 
-var _AllOfParser = require('./AllOfParser');
+var _ParsersAllOfParser = require('./Parsers/AllOfParser');
 
-var _AllOfParser2 = _interopRequireDefault(_AllOfParser);
+var _ParsersAllOfParser2 = _interopRequireDefault(_ParsersAllOfParser);
 
-var _EnumParser = require('./EnumParser');
+var _ParsersEnumParser = require('./Parsers/EnumParser');
 
-var _EnumParser2 = _interopRequireDefault(_EnumParser);
+var _ParsersEnumParser2 = _interopRequireDefault(_ParsersEnumParser);
 
 var _chance = require('chance');
 
 var _chance2 = _interopRequireDefault(_chance);
 
 var chance = new _chance2['default']();
-
-// var StringParser = require('../Parsers/StringParser')
-// var ObjectParser = require('../Parsers/ObjectParser')
-// var ArrayParser = require('../Parsers/ArrayParser')
-// var NumberParser = require('../Parsers/NumberParser')
-// var DateParser = require('../Parsers/DateParser')
-// var BooleanParser = require('../Parsers/BooleanParser')
-// var AllOfParser = require('../Parsers/AllOfParser')
-// var EnumParser = require('../Parsers/EnumParser')
-// var Chance = require('chance')
-// var chance = new Chance();
 
 var Parser = (function () {
     function Parser() {
@@ -83,7 +72,7 @@ var Parser = (function () {
     }, {
         key: 'parsers',
         get: function get() {
-            return this._parsers || (this._parsers = [new _EnumParser2['default'](), new _StringParser2['default'](), new _ObjectParser2['default'](this), new _ArrayParser2['default'](this), new _AllOfParser2['default'](this), new _NumberParser2['default'](), new _BooleanParser2['default'](), new _DateParser2['default'](), new _BooleanParser2['default']()]);
+            return this._parsers || (this._parsers = [new _ParsersEnumParser2['default'](), new _ParsersStringParser2['default'](), new _ParsersObjectParser2['default'](this), new _ParsersArrayParser2['default'](this), new _ParsersAllOfParser2['default'](this), new _ParsersNumberParser2['default'](), new _ParsersBooleanParser2['default'](), new _ParsersDateParser2['default'](), new _ParsersBooleanParser2['default']()]);
         }
     }]);
 
