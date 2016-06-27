@@ -46,6 +46,8 @@ var _chance = require('chance');
 
 var _chance2 = _interopRequireDefault(_chance);
 
+require("babel-polyfill");
+
 var chance = new _chance2['default']();
 
 var Parser = (function () {

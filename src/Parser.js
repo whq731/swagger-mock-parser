@@ -7,6 +7,7 @@ import BooleanParser from './Parsers/BooleanParser'
 import AllOfParser from './Parsers/AllOfParser'
 import EnumParser from './Parsers/EnumParser'
 import Chance from 'chance';
+import "babel-polyfill";
 const chance = new Chance();
 
 
@@ -21,7 +22,7 @@ export default class Parser {
             new NumberParser(),
             new BooleanParser(),
             new DateParser(),
-            new BooleanParser(),
+            new BooleanParser()
         ]);
     }
 
