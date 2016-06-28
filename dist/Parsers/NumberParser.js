@@ -1,20 +1,14 @@
 'use strict';
 
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
-
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
-
-var _Number$MIN_SAFE_INTEGER = require('babel-runtime/core-js/number/min-safe-integer')['default'];
-
-var _Number$MAX_SAFE_INTEGER = require('babel-runtime/core-js/number/max-safe-integer')['default'];
-
-var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
-
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
 Object.defineProperty(exports, '__esModule', {
     value: true
 });
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 var _chance = require('chance');
 
@@ -48,9 +42,9 @@ var NumberParser = (function () {
     }, {
         key: 'resolveBounds',
         value: function resolveBounds(node) {
-            var bounds = { min: _Number$MIN_SAFE_INTEGER, max: _Number$MAX_SAFE_INTEGER };
+            var bounds = { min: Number.MIN_SAFE_INTEGER, max: Number.MAX_SAFE_INTEGER };
 
-            _Object$assign(bounds, node['x-type-options']);
+            Object.assign(bounds, node['x-type-options']);
 
             if (node.multipleOf < 1) {
                 throw new Error('The value of "multipleOf" MUST be a JSON number. This number MUST be strictly greater than 0.');

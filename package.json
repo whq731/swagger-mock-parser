@@ -1,6 +1,6 @@
 {
   "name": "swagger-mock-parser",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "use chance.js to parse definition schema to mock data",
   "keywords": [
     "swagger",
@@ -17,13 +17,11 @@
   },
   "main": "dist/Parser",
   "scripts": {
-    "build": "babel --optional runtime src --out-dir dist"
+    "build": "babel src --out-dir dist"
   },
   "author": "weihanqing",
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.9.1",
-    "babel-runtime": "^5.5.6",
     "chance": "~0.7.5",
     "hoek": "~2.14.0",
     "randexp": "^0.4.2"
