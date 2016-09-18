@@ -1,6 +1,6 @@
 {
   "name": "swagger-mock-parser",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "use chance.js to parse definition schema to mock data",
   "keywords": [
     "swagger",
