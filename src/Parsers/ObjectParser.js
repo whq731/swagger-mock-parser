@@ -7,7 +7,7 @@ export default class ObjectParser {
         this.parser = parser;
     }
     canParse(node) {
-        return !!node.properties;
+        return !!node.properties || node.type === 'object';
     }
 
     parse(node) {

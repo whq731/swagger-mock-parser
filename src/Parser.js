@@ -27,10 +27,12 @@ export default class Parser {
 
     getParser(node) {
         let parser = this.findParser(p => p.canParse(node));
-
-        if (!parser)
-            throw new Error(`Can't handle ${node.type || 'Unknown'} type.`);
-
+        if (!parser) {
+            // throw new Error(`Can't handle ${node.type || 'Unknown'} type.`);
+            return {parse: function (node) {
+                return 'Can\'t handle ' + (node.type || 'Unknown') + ' type.'
+            }}
+        }
         return parser;
     }
 

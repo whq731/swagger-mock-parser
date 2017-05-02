@@ -59,9 +59,12 @@ var Parser = (function () {
             var parser = this.findParser(function (p) {
                 return p.canParse(node);
             });
-
-            if (!parser) throw new Error('Can\'t handle ' + (node.type || 'Unknown') + ' type.');
-
+            if (!parser) {
+                // throw new Error(`Can't handle ${node.type || 'Unknown'} type.`);
+                return { parse: function parse(node) {
+                        return 'Can\'t handle ' + (node.type || 'Unknown') + ' type.';
+                    } };
+            }
             return parser;
         }
     }, {

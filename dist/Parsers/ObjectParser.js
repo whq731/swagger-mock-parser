@@ -30,7 +30,7 @@ var ObjectParser = (function () {
     _createClass(ObjectParser, [{
         key: 'canParse',
         value: function canParse(node) {
-            return !!node.properties;
+            return !!node.properties || node.type === 'object';
         }
     }, {
         key: 'parse',
