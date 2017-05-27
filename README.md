@@ -2,6 +2,7 @@
 A parser for swagger object properties ,mock data returned by chancejs
 
 ##changeLog
+ version 1.1.8 change: add useExample option,set this true parser will return defined example first
  version 1.1.7 break change: return string instead of throw error,objectParser canParse add "node.type == object" judge condition
 
 
@@ -10,12 +11,18 @@ A parser for swagger object properties ,mock data returned by chancejs
 An example for mocking swagger definition schema
 
 ```javascript
+// basic usage
 var Parser = require('swagger-mock-parser')
 var parser = new Parser();
-
 var schema = definition.schema;
+return parser.parse(schema);
 
-  return parser.parse(schema);
+// useExample option
+var Parser = require('swagger-mock-parser')
+// set useExample true will return every property's example which has already defined
+var parser = new Parser({useExample: true});
+var schema = {type: 'string', example: 'will return example first'}
+return parser.parse(schema);
 
 ```
 

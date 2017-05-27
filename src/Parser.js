@@ -11,6 +11,9 @@ const chance = new Chance();
 
 
 export default class Parser {
+    constructor (options) {
+        this.options = options;
+    }
     get parsers() {
         return this._parsers || (this._parsers = [
             new EnumParser(),
@@ -40,9 +43,12 @@ export default class Parser {
         if (node['x-chance-type'] === 'fixed') {
             return node['x-type-value'];
         }
-
-        if (node['x-chance-type'])
+        if (node['x-chance-type']){
             return chance[node['x-chance-type']](node['x-type-options']);
+        }
+        if (this.options && this.options.useExample && node.example){
+            return node.example
+        }
 
         return this.getParser(node).parse(node);
     }

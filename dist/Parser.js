@@ -49,8 +49,10 @@ var _chance2 = _interopRequireDefault(_chance);
 var chance = new _chance2['default']();
 
 var Parser = (function () {
-    function Parser() {
+    function Parser(options) {
         _classCallCheck(this, Parser);
+
+        this.options = options;
     }
 
     _createClass(Parser, [{
@@ -73,8 +75,12 @@ var Parser = (function () {
             if (node['x-chance-type'] === 'fixed') {
                 return node['x-type-value'];
             }
-
-            if (node['x-chance-type']) return chance[node['x-chance-type']](node['x-type-options']);
+            if (node['x-chance-type']) {
+                return chance[node['x-chance-type']](node['x-type-options']);
+            }
+            if (this.options && this.options.useExample && node.example) {
+                return node.example;
+            }
 
             return this.getParser(node).parse(node);
         }
