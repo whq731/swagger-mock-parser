@@ -42,6 +42,7 @@ var ObjectParser = (function () {
             schema = schema.properties;
             this.cache.push(node);
             for (var k in schema) {
+                // detect and fix circular references in schema and return null object
                 if (this.cache.filter(function (cacheObj) {
                     return node == cacheObj;
                 }).length > 2) {
