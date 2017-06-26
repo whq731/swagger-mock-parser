@@ -1,9 +1,15 @@
 # swagger-mock-parser
 A parser for swagger object properties ,mock data returned by chancejs
 
-##changeLog
- version 1.1.8 change: add useExample option,set this true parser will return defined example first
- version 1.1.7 break change: return string instead of throw error,objectParser canParse add "node.type == object" judge condition
+## changeLog
+### version 1.1.12
+detect and fix circular references in schema and return null object
+
+### version 1.1.8
+add useExample option,set this true parser will return defined example first
+
+### version 1.1.7
+break change: return string instead of throw error,objectParser canParse add "node.type == object" judge condition
 
 
 ## usage
