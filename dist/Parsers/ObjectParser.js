@@ -14,16 +14,13 @@ var _chance = require('chance');
 
 var _chance2 = _interopRequireDefault(_chance);
 
-var _hoek = require('hoek');
-
-var _hoek2 = _interopRequireDefault(_hoek);
-
 var chance = new _chance2['default']();
 
 var ObjectParser = (function () {
     function ObjectParser(parser) {
         _classCallCheck(this, ObjectParser);
 
+        this.cache = [];
         this.parser = parser;
     }
 
@@ -41,13 +38,20 @@ var ObjectParser = (function () {
         key: 'generateObject',
         value: function generateObject(node) {
             var ret = {};
-            var schema = _hoek2['default'].clone(node);
-            schema = schema.properties || schema;
-
+            var schema = Object.assign({}, node);
+            schema = schema.properties;
+            this.cache.push(node);
             for (var k in schema) {
-                ret[k] = this.parser.parse(schema[k]);
+                if (this.cache.filter(function (cacheObj) {
+                    return node == cacheObj;
+                }).length > 2) {
+                    ret[k] = {};
+                    this.cache.pop();
+                    return ret;
+                } else {
+                    ret[k] = this.parser.parse(schema[k]);
+                }
             }
-
             return ret;
         }
     }]);

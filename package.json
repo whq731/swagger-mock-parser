@@ -1,6 +1,6 @@
 {
   "name": "swagger-mock-parser",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "use chance.js to parse definition schema to mock data",
   "keywords": [
     "swagger",
@@ -23,7 +23,6 @@
   "license": "MIT",
   "dependencies": {
     "chance": "~0.7.5",
-    "hoek": "~2.14.0",
     "randexp": "^0.4.2"
   },
   "devDependencies": {
