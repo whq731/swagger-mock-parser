@@ -40,17 +40,22 @@ var ObjectParser = (function () {
             var ret = {};
             var schema = Object.assign({}, node);
             schema = schema.properties;
-            this.cache.push(node);
-            for (var k in schema) {
-                // detect and fix circular references in schema and return null object
-                if (this.cache.filter(function (cacheObj) {
-                    return node == cacheObj;
-                }).length > 2) {
-                    ret[k] = {};
-                    this.cache.pop();
-                    return ret;
-                } else {
-                    ret[k] = this.parser.parse(schema[k]);
+            this.cache.push(schema);
+            // if is not swagger object type return null object
+            if (schema) {
+                var hasCircular = this.cache.filter(function (cacheObj) {
+                    return schema == cacheObj;
+                }).length > 1;
+                for (var k in schema) {
+                    // detect and break circular references in schema and return null object
+                    if (hasCircular) {
+                        schema[k] = {};
+                        hasCircular = false;
+                        this.cache.pop();
+                        break;
+                    } else {
+                        ret[k] = this.parser.parse(schema[k]);
+                    }
                 }
             }
             return ret;

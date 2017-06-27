@@ -2,10 +2,10 @@
 A parser for swagger object properties ,mock data returned by chancejs
 
 ## changeLog
-### version 1.1.12
+### version 1.1.12 ~ 1.1.13
 detect and fix circular references in schema and return null object
 
-### version 1.1.8
+### version 1.1.8 ~ 1.1.11
 add useExample option,set this true parser will return defined example first
 
 ### version 1.1.7
