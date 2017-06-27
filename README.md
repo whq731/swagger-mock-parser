@@ -2,7 +2,9 @@
 A parser for swagger object properties ,mock data returned by chancejs
 
 ## changeLog
-### version 1.1.12 ~ 1.1.13
+### version 1.1.13
+add fixedArray option,set this true ,array parser will return only one child array
+### version 1.1.12
 detect and fix circular references in schema and return null object
 
 ### version 1.1.8 ~ 1.1.11

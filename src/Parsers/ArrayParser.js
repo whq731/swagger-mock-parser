@@ -21,7 +21,7 @@ export default class ArrayParser {
         options.min = options.min || node.minItems || 0;
         options.max = options.max || node.maxItems || 10;
 
-        let iterations = chance.integer(options);
+        let iterations = (this.parser.options && this.parser.options.fixedArray)? 1 : chance.integer(options) ;
         let ret = [];
 
         for (let i = 0; i < iterations; i++) {

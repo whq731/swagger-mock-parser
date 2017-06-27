@@ -42,7 +42,7 @@ var ArrayParser = (function () {
             options.min = options.min || node.minItems || 0;
             options.max = options.max || node.maxItems || 10;
 
-            var iterations = chance.integer(options);
+            var iterations = this.parser.options && this.parser.options.fixedArray ? 1 : chance.integer(options);
             var ret = [];
 
             for (var i = 0; i < iterations; i++) {
