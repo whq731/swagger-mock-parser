@@ -2,6 +2,8 @@
 A parser for swagger object properties ,mock data returned by chancejs
 
 ## changeLog
+### version 1.1.14
+add useObjectKey option,set this true ,String parser will return the key name;
 ### version 1.1.13
 add fixedArray option,set this true ,array parser will return only one child array
 ### version 1.1.12
@@ -32,6 +34,26 @@ var parser = new Parser({useExample: true});
 var schema = {type: 'string', example: 'will return example first'}
 return parser.parse(schema);
 
+// useObjectKey option
+var Parser = require('swagger-mock-parser')
+// set useObjectKey true will return every Object property's name as the string value，but useExample is prior
+var parser = new Parser({useExample: true, useObjectKey: true});
+var hasExampleSchema ={
+    type: 'object',
+    properties: {
+        objectKeyName: {type: 'string', example: 'useExample prior'}
+    }
+}
+var noExampleSchema ={
+    type: 'object',
+    properties: {
+        objectKeyName: {type: 'string', example: ''}
+    }
+}
+// this will return { objectKeyName: 'useExample prior' }
+return parser.parse(hasExampleSchema);
+// this will return { objectKeyName: 'objectKeyName' }
+return parser.parse(noExampleSchema);
 ```
 
 

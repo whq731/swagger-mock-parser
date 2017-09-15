@@ -41,7 +41,7 @@ var StringParser = (function () {
             if (node.pattern) return new _randexp2['default'](node.pattern).gen();
 
             var options = this.resolveChanceOptions(node);
-            return chance.string(options);
+            return node._objectKey || chance.string(options);
         }
     }, {
         key: 'resolveChanceOptions',

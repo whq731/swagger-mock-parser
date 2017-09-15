@@ -16,7 +16,7 @@ export default class StringParser {
             return new RandExp(node.pattern).gen();
             
         let options = this.resolveChanceOptions(node);
-        return chance.string(options);
+        return node._objectKey|| chance.string(options);
     }
 
     resolveChanceOptions(node) {

@@ -32,6 +32,9 @@ export default class ObjectParser {
                     this.cache.pop();
                     break;
                 } else {
+                    if(this.parser.options && this.parser.options.useObjectKey){
+                        schema[k]._objectKey = k;
+                    }
                     ret[k] = this.parser.parse(schema[k]);
                 }
             }
