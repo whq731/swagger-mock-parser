@@ -2,5 +2,6 @@ language: node_js
 node_js:
   - "6.4.0"
 script: npm run build
-after_script:
-  npm run test
+after_scuess:
+  npm run test;
+  npm run coverage;
