@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/moajs/mongoosedao.png?branch=master)](https://travis-ci.org/moajs/mongoosedao)
+[![Coverage Status](https://coveralls.io/repos/moajs/mongoosedao/badge.png)](https://coveralls.io/r/moajs/mongoosedao)
 # swagger-mock-parser
 A parser for swagger object properties ,mock data returned by chancejs
 

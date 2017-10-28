@@ -1,5 +1,13 @@
+var test = require('ava');
 var Parser = require('../dist/Parser');
-var parser = new Parser({fixedArray: true});
-console.log('fixed Array:' + parser.parse({type: 'array', items: {type: 'string'}}));
-parser = new Parser();
-console.log('default random Array:' + parser.parse({type: 'array', items: {type: 'string'}}));
+
+test('fixed Array', t => {
+    let parser = new Parser({fixedArray: true});
+    let res = parser.parse({type: 'array', items: {type: 'string'}});
+    t.is(Array.isArray(res) && res.length === 1, true);
+});
+test('default random Array', t => {
+    let parser = new Parser();
+    let res = parser.parse({type: 'array', items: {type: 'string'}});
+    t.is(Array.isArray(res), true);
+});      
