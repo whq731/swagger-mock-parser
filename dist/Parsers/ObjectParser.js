@@ -47,18 +47,18 @@ var ObjectParser = (function () {
                     return schema == cacheObj;
                 }).length > 1;
                 for (var k in schema) {
-                    // detect and break circular references in schema and return null object
+                    // detect and break circular references in schema
                     if (hasCircular) {
-                        schema[k] = {};
+                        schema[k] = JSON.parse(JSON.stringify(schema[k]));
+                        ret[k] = this.parser.parse(schema[k]);
                         hasCircular = false;
                         this.cache.pop();
                         break;
-                    } else {
-                        if (this.parser.options && this.parser.options.useObjectKey) {
-                            schema[k]._objectKey = k;
-                        }
-                        ret[k] = this.parser.parse(schema[k]);
                     }
+                    if (this.parser.options && this.parser.options.useObjectKey) {
+                        schema[k]._objectKey = k;
+                    }
+                    ret[k] = this.parser.parse(schema[k]);
                 }
             }
             return ret;

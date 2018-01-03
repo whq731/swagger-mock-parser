@@ -5,6 +5,9 @@
 A parser for swagger object properties ,mock data returned by chancejs
 
 ## changeLog
+### version 1.2.0
+break change:
+object parser use JSON.stringfy to break circular references in schema
 ### version 1.1.14
 add useObjectKey option,set this true ,String parser will return the key name;
 ### version 1.1.13

@@ -25,18 +25,18 @@ export default class ObjectParser {
                     return schema == cacheObj;
                 }).length > 1
             for (var k in schema) {
-                // detect and break circular references in schema and return null object
-                if (hasCircular){
-                    schema[k] = {};
+                // detect and break circular references in schema
+                if (hasCircular) {
+                    schema[k] = JSON.parse(JSON.stringify(schema[k]));
+                    ret[k] = this.parser.parse(schema[k]);
                     hasCircular = false;
                     this.cache.pop();
                     break;
-                } else {
-                    if(this.parser.options && this.parser.options.useObjectKey){
-                        schema[k]._objectKey = k;
-                    }
-                    ret[k] = this.parser.parse(schema[k]);
                 }
+                if(this.parser.options && this.parser.options.useObjectKey){
+                    schema[k]._objectKey = k;
+                }
+                ret[k] = this.parser.parse(schema[k]);
             }
         }
         return ret;
